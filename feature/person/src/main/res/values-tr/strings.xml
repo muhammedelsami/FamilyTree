@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="people_title">Kişiler</string>
+    <string name="search_people">Kişilerde ara</string>
+    <string name="close_search">Aramayı kapat</string>
+    <string name="sort_people">Sırala</string>
+    <string name="add_person">Kişi ekle</string>
+    <string name="ascending">Artan</string>
+    <string name="descending">Azalan</string>
+
+    <string name="no_people_title">Henüz kişi yok</string>
+    <string name="no_people_description">İlk kişiyi ekleyin, ağaç oradan büyür.</string>
+    <string name="no_matches_title">Eşleşme yok</string>
+    <string name="no_matches_description">Bu ağaçta “%1$s” ile eşleşen kimse yok.</string>
+
+    <string name="sort_id">Kimlik</string>
+    <string name="sort_surname">Soyadı</string>
+    <string name="sort_date">Tarih</string>
+    <string name="sort_age">Yaş</string>
+    <string name="sort_birthday">Yaklaşan doğum günü</string>
+    <string name="sort_relatives">Akraba sayısı</string>
+    <string name="edit_person">Kişiyi düzenle</string>
+    <string name="save">Kaydet</string>
+    <string name="given_name">Ad</string>
+    <string name="surname">Soyadı</string>
+    <string name="sex">Cinsiyet</string>
+    <string name="sex_male">Erkek</string>
+    <string name="sex_female">Kadın</string>
+    <string name="sex_unknown">Bilinmiyor</string>
+    <string name="birth">Doğum</string>
+    <string name="date">Tarih</string>
+    <string name="place">Yer</string>
+    <string name="deceased">Vefat etti</string>
+    <string name="add_parent">Ebeveyn ekle</string>
+    <string name="add_sibling">Kardeş ekle</string>
+    <string name="add_partner">Eş ekle</string>
+    <string name="add_child">Çocuk ekle</string>
+    <string name="tab_facts">Bilgiler</string>
+    <string name="tab_relatives">Akrabalar</string>
+    <string name="tab_media">Medya</string>
+    <string name="back">Geri</string>
+    <string name="delete_person">Kişiyi sil</string>
+    <string name="delete_person_message">“%1$s” ve hakkında kayıtlı her şey silinecek.</string>
+    <string name="person_unnamed_profile">Adsız kişi</string>
+    <string name="person_gone">Bu kişi artık mevcut değil</string>
+    <string name="add_relative">Akraba ekle</string>
+    <string name="no_facts">Henüz bir kayıt yok.</string>
+    <string name="no_relatives_title">Henüz akraba yok</string>
+    <string name="no_relatives_description">Bu kişiyi bağlamaya başlamak için ebeveyn, eş ya da çocuk ekleyin.</string>
+    <string name="media_later_phase">Medya sonraki fazda geliyor.</string>
+    <string name="section_names">İsimler</string>
+    <string name="section_events">Olaylar</string>
+    <string name="section_notes">Notlar</string>
+    <string name="group_parents">Ebeveynler</string>
+    <string name="group_siblings">Kardeşler</string>
+    <string name="group_partners">Eşler</string>
+    <string name="group_children">Çocuklar</string>
+    <string name="relation_parent">Ebeveyn</string>
+    <string name="relation_sibling">Kardeş</string>
+    <string name="relation_partner">Eş</string>
+    <string name="relation_child">Çocuk</string>
+    <string name="delete">Sil</string>
+    <string name="choose_person">Bir kişi seç</string>
+</resources>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gallery">Gallery</string>
+    <string name="media">Media</string>
+    <string name="back">Back</string>
+    <string name="more">More</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="remove">Remove</string>
+    <string name="rename">Rename</string>
+    <string name="not_set">Not set</string>
+
+    <plurals name="media_count">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+
+    <string name="gallery_empty">No media yet</string>
+    <string name="gallery_empty_description">Photographs and documents attached to people appear here.</string>
+
+    <string name="shorten_links">Shorten file links</string>
+    <string name="copy_files_in">Copy files into the app</string>
+    <plurals name="links_shortened">
+        <item quantity="one">%d link shortened</item>
+        <item quantity="other">%d links shortened</item>
+    </plurals>
+    <plurals name="files_copied">
+        <item quantity="one">%d file copied in</item>
+        <item quantity="other">%d files copied in</item>
+    </plurals>
+    <string name="nothing_to_do">Nothing needed changing.</string>
+    <string name="maintenance_failed">Something went wrong.</string>
+
+    <string name="title">Title</string>
+    <string name="media_type">Type</string>
+    <string name="media_type_hint">For example photo, certificate or letter.</string>
+    <string name="crop">Crop</string>
+    <string name="rename_file">Rename file</string>
+    <string name="file_name">File name</string>
+    <string name="remove_media">Remove from the tree</string>
+    <string name="delete_file">Delete the file</string>
+    <string name="delete_file_warning">The file will be deleted from this device. This cannot be undone.</string>
+    <string name="file_renamed">File renamed.</string>
+    <string name="file_rename_failed">The file could not be renamed.</string>
+    <string name="file_deleted">File deleted.</string>
+    <string name="file_delete_failed">The file could not be deleted.</string>
+
+    <string name="file_link">Recorded link</string>
+    <string name="location">Location</string>
+    <string name="stored_in_app">In this app\'s own storage</string>
+    <string name="stored_in_granted_folder">In a folder you granted</string>
+    <string name="stored_online">On the web</string>
+    <string name="file_not_found">Not found on this device</string>
+    <plurals name="shared_by_records">
+        <item quantity="one">Used by %d record</item>
+        <item quantity="other">Used by %d records</item>
+    </plurals>
+
+    <string name="media_folders">Media folders</string>
+    <string name="add_folder">Add folder</string>
+    <string name="no_media_folders">No media folders</string>
+    <string name="no_media_folders_description">Add the folder your photographs are kept in, and files this tree refers to will be found there.</string>
+    <string name="media_folders_explanation">These folders are searched for the files this tree refers to.</string>
+    <string name="folder_available">Available</string>
+    <string name="folder_unavailable">No longer readable — the permission may have been withdrawn.</string>
+    <string name="add_media">Add a photo or document</string>
+    <string name="from_photos">From photos</string>
+    <string name="from_files">From files</string>
+    <string name="take_photo">Take a photo</string>
+    <string name="file_exists_reuse">A file with this name and size is already in this tree. Use it, or keep a second copy?</string>
+    <string name="use_existing">Use existing</string>
+    <string name="make_copy">Keep both</string>
+    <string name="rotate">Rotate</string>
+    <string name="done">Done</string>
+    <string name="no_media_here">No photos or documents yet</string>
+    <string name="no_media_here_description">Add a photograph, a certificate or a scanned letter.</string>
+    <string name="use_as_portrait">Use as portrait</string>
+</resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">الإعدادات</string>
+    <string name="back">رجوع</string>
+    <string name="cancel">إلغاء</string>
+    <string name="set">تعيين</string>
+
+    <string name="section_appearance">المظهر</string>
+    <string name="theme_system">اتّباع النظام</string>
+    <string name="theme_light">فاتح</string>
+    <string name="theme_dark">داكن</string>
+    <string name="dynamic_colour">ألوان من خلفية الشاشة</string>
+    <string name="dynamic_colour_description">يستخدم ألوان النظام على أندرويد 12 فما بعد.</string>
+
+    <string name="label_theme">السمة</string>
+    <string name="label_language">اللغة</string>
+    <string name="language_system">لغة النظام</string>
+    <string name="label_font">الخط</string>
+    <string name="font_system">خط النظام</string>
+    <string name="section_editing">التحرير</string>
+    <string name="auto_save">الحفظ التلقائي</string>
+    <string name="auto_save_description">يكتب التغييرات مباشرة دون سؤال.</string>
+    <string name="expert_mode">وضع الخبير</string>
+    <string name="expert_mode_description">يُظهر المصادر والمستودعات والمُرسِلين ووسوم GEDCOM الخام.</string>
+    <string name="load_tree_at_startup">إعادة فتح آخر شجرة</string>
+    <string name="load_tree_at_startup_description">ابدأ من حيث توقفت.</string>
+
+    <string name="section_notifications">التذكيرات</string>
+    <string name="birthday_reminders">تذكيرات أعياد الميلاد</string>
+    <string name="birthday_reminders_description">تذكير يومي بأعياد ميلاد الأقارب الأحياء.</string>
+    <string name="reminder_time">وقت اليوم</string>
+
+    <string name="premium">النسخة المميزة</string>
+    <string name="premium_active">النسخة المميزة مفعّلة</string>
+    <string name="premium_description">تسجيل شجرة عائلتك وحفظها مجاني، وسيبقى كذلك. تفتح النسخة المميزة الدمج التلقائي لشجرتين — الجزء الذي يوفّر ساعات من المقارنة اليدوية.</string>
+    <string name="premium_buy">الفتح مقابل %s</string>
+    <string name="premium_thanks">شكرًا لك. فُتح الدمج التلقائي.</string>
+    <string name="premium_already_owned">تملك هذا بالفعل. تمت استعادته.</string>
+    <string name="premium_cancelled">أُلغيت عملية الشراء.</string>
+    <string name="premium_unavailable">المتجر غير متاح على هذا الجهاز.</string>
+    <string name="premium_failed">لم تكتمل عملية الشراء.</string>
+    <string name="restore_purchases">استعادة عملية شراء سابقة</string>
+</resources>

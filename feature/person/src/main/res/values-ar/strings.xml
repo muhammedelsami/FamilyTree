@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="people_title">الأشخاص</string>
+    <string name="search_people">البحث عن أشخاص</string>
+    <string name="close_search">إغلاق البحث</string>
+    <string name="sort_people">ترتيب</string>
+    <string name="add_person">إضافة شخص</string>
+    <string name="ascending">تصاعدي</string>
+    <string name="descending">تنازلي</string>
+
+    <string name="no_people_title">لا يوجد أشخاص بعد</string>
+    <string name="no_people_description">أضف أول شخص ومنه تنمو الشجرة.</string>
+    <string name="no_matches_title">لا توجد نتائج</string>
+    <string name="no_matches_description">لا أحد في هذه الشجرة يطابق «%1$s».</string>
+
+    <string name="sort_id">المعرّف</string>
+    <string name="sort_surname">اسم العائلة</string>
+    <string name="sort_date">التاريخ</string>
+    <string name="sort_age">العمر</string>
+    <string name="sort_birthday">عيد الميلاد القادم</string>
+    <string name="sort_relatives">عدد الأقارب</string>
+    <string name="edit_person">تعديل الشخص</string>
+    <string name="save">حفظ</string>
+    <string name="given_name">الاسم</string>
+    <string name="surname">اسم العائلة</string>
+    <string name="sex">الجنس</string>
+    <string name="sex_male">ذكر</string>
+    <string name="sex_female">أنثى</string>
+    <string name="sex_unknown">غير معروف</string>
+    <string name="birth">الميلاد</string>
+    <string name="date">التاريخ</string>
+    <string name="place">المكان</string>
+    <string name="deceased">متوفى</string>
+    <string name="add_parent">إضافة والد</string>
+    <string name="add_sibling">إضافة شقيق</string>
+    <string name="add_partner">إضافة شريك</string>
+    <string name="add_child">إضافة طفل</string>
+    <string name="tab_facts">المعلومات</string>
+    <string name="tab_relatives">الأقارب</string>
+    <string name="tab_media">الوسائط</string>
+    <string name="back">رجوع</string>
+    <string name="delete_person">حذف الشخص</string>
+    <string name="delete_person_message">سيتم حذف «%1$s» وكل ما سُجّل عنه.</string>
+    <string name="person_unnamed_profile">شخص بلا اسم</string>
+    <string name="person_gone">لم يعد هذا الشخص موجودًا</string>
+    <string name="add_relative">إضافة قريب</string>
+    <string name="no_facts">لا توجد سجلات بعد.</string>
+    <string name="no_relatives_title">لا يوجد أقارب بعد</string>
+    <string name="no_relatives_description">أضف والدًا أو شريكًا أو طفلًا لبدء ربط هذا الشخص.</string>
+    <string name="media_later_phase">الوسائط تصل في مرحلة لاحقة.</string>
+    <string name="section_names">الأسماء</string>
+    <string name="section_events">الأحداث</string>
+    <string name="section_notes">الملاحظات</string>
+    <string name="group_parents">الوالدان</string>
+    <string name="group_siblings">الإخوة</string>
+    <string name="group_partners">الشركاء</string>
+    <string name="group_children">الأطفال</string>
+    <string name="relation_parent">والد</string>
+    <string name="relation_sibling">شقيق</string>
+    <string name="relation_partner">شريك</string>
+    <string name="relation_child">طفل</string>
+    <string name="delete">حذف</string>
+    <string name="choose_person">اختر شخصًا</string>
+</resources>

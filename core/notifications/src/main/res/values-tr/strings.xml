@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="birthday_channel">Doğum günleri</string>
+    <string name="birthday_channel_description">Ağaçlarındaki doğum günleri için günlük hatırlatma.</string>
+    <string name="birthday_today_one">Bugün %s\'in doğum günü</string>
+    <plurals name="birthday_today_many">
+        <item quantity="one">Bugün %d doğum günü var</item>
+        <item quantity="other">Bugün %d doğum günü var</item>
+    </plurals>
+    <string name="birthday_person_age">%1$s (%2$d)</string>
+</resources>

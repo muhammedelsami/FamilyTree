@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FamilyTree</string>
+    <string name="section_diagram">المخطط</string>
+    <string name="section_people">الأشخاص</string>
+    <string name="section_families">العائلات</string>
+    <string name="section_media">الوسائط</string>
+</resources>

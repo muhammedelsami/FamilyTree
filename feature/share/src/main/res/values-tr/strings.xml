@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="review_updates">Güncellemeleri incele</string>
+    <string name="from_tree">“%s” ağacından</string>
+    <string name="back">Geri</string>
+    <string name="done">Bitti</string>
+    <string name="select_all">Tümünü seç</string>
+    <string name="select_none">Hiçbirini seçme</string>
+
+    <plurals name="apply_updates">
+        <item quantity="one">%d güncellemeyi uygula</item>
+        <item quantity="other">%d güncellemeyi uygula</item>
+    </plurals>
+
+    <string name="no_updates">Yeni bir şey yok</string>
+    <string name="no_updates_description">Bu kopyada ağacında zaten olmayan hiçbir şey yok. Silebilirsin.</string>
+
+    <string name="count_added">%d eklendi</string>
+    <string name="count_changed">%d değişti</string>
+    <string name="count_removed">%d kaldırıldı</string>
+
+    <string name="updates_applied">Güncellemeler uygulandı</string>
+    <string name="updates_applied_summary">%1$d eklendi, %2$d güncellendi, %3$d kaldırıldı.</string>
+
+    <string name="record_person">Kişi</string>
+    <string name="record_family">Aile</string>
+    <string name="record_note">Not</string>
+    <string name="record_source">Kaynak</string>
+    <string name="record_media">Medya</string>
+    <string name="record_repository">Depo</string>
+    <string name="record_submitter">Gönderen</string>
+
+    <string name="share_tree">Bu ağacı paylaş</string>
+    <string name="receive_share">Paylaşılan ağaç al</string>
+</resources>

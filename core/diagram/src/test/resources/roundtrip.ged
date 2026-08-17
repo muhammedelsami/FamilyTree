@@ -1,0 +1,94 @@
+0 HEAD
+1 SOUR Ahnenblatt
+2 NAME Ahnenblatt
+2 VERS 3.58
+1 DEST ANY
+1 DATE 14 AUG 2026
+1 CHAR UTF-8
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 LANG Turkish
+1 SUBM @U1@
+1 _ROOT @I1@
+0 @U1@ SUBM
+1 NAME Muhammed Elsami
+1 ADDR Ataturk Cad 12
+2 CITY Istanbul
+2 CTRY Turkey
+1 EMAIL sami@example.org
+0 @I1@ INDI
+1 NAME Ahmet /Yilmaz/
+2 GIVN Ahmet
+2 SURN Yilmaz
+2 NICK Ahmo
+2 SOUR @S1@
+3 PAGE sayfa 12
+3 QUAY 3
+1 SEX M
+1 BIRT
+2 DATE 3 FEB 1715/16
+2 PLAC Bursa, Turkey
+2 SOUR @S1@
+1 DEAT
+2 DATE ABT 1790
+2 PLAC Istanbul
+2 CAUS unknown
+1 OCCU Demirci
+2 DATE FROM 1740 TO 1760
+1 FAMS @F1@
+1 OBJE @M1@
+1 NOTE @T1@
+1 NOTE Bu satir ici bir nottur.
+1 _UID 4F2A9C1E5B3D
+1 _MILT
+2 DATE 1735
+2 PLAC Edirne
+2 _RANK Cavus
+1 CHAN
+2 DATE 1 JAN 2026
+0 @I2@ INDI
+1 NAME Ayse /Yilmaz/
+2 SURN Yilmaz
+2 TYPE married
+1 SEX F
+1 BIRT
+2 DATE 12 MAY 1720
+1 FAMS @F1@
+1 _APID 1,1234::5678
+0 @I3@ INDI
+1 NAME Mehmet /Yilmaz/
+1 SEX M
+1 BIRT
+2 DATE 1745
+1 FAMC @F1@
+0 @F1@ FAM
+1 HUSB @I1@
+1 WIFE @I2@
+1 CHIL @I3@
+1 MARR
+2 DATE 8 JUN 1740
+2 PLAC Bursa
+1 NOTE @T1@
+0 @T1@ NOTE Bu paylasilan bir nottur.
+1 CONT Ikinci satir.
+1 RIN 77
+0 @M1@ OBJE
+1 FILE dede.jpg
+1 FORM jpg
+1 TITL Dedenin fotografi
+1 _PRIM Y
+0 @S1@ SOUR
+1 TITL Bursa Nufus Kayitlari
+1 AUTH Osmanli Arsivi
+1 ABBR BNK
+1 PUBL Istanbul 1890
+1 REPO @R1@
+2 CALN A-114
+1 NOTE Kaynak notu.
+0 @R1@ REPO
+1 NAME Devlet Arsivleri
+1 ADDR Kagithane
+2 CITY Istanbul
+1 WWW https://example.org
+0 TRLR

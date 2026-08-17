@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="families_title">Families</string>
+    <string name="search_families">Search families</string>
+    <string name="close_search">Close search</string>
+    <string name="sort_families">Sort</string>
+    <string name="add_family">Add family</string>
+    <string name="no_families_title">No families yet</string>
+    <string name="no_families_description">Families appear as you connect people to each other.</string>
+    <string name="no_matches_title">Nothing matched</string>
+    <string name="no_family_matches">No family in this tree matches “%1$s”.</string>
+    <string name="family_without_partners">Family with no partners</string>
+    <string name="married_prefix">Married %1$s</string>
+    <string name="children_count">%1$d children</string>
+    <string name="family_sort_id">Identifier</string>
+    <string name="family_sort_surname">Surname</string>
+    <string name="family_sort_members">Number of members</string>
+    <string name="family_detail_title">Family</string>
+    <string name="back">Back</string>
+    <string name="add_event">Add event</string>
+    <string name="delete_event">Delete event</string>
+    <string name="family_gone">This family no longer exists</string>
+    <string name="no_family_events">No events recorded for this family yet.</string>
+    <string name="group_partners">Partners</string>
+    <string name="group_children">Children</string>
+    <string name="member_without_id">Member</string>
+    <string name="open_person">Open person</string>
+    <string name="remove_member">Remove from family</string>
+</resources>

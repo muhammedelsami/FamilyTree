@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings">Ayarlar</string>
+    <string name="back">Geri</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="set">Ayarla</string>
+
+    <string name="section_appearance">Görünüm</string>
+    <string name="theme_system">Sistemi izle</string>
+    <string name="theme_light">Açık</string>
+    <string name="theme_dark">Koyu</string>
+    <string name="dynamic_colour">Duvar kâğıdından renkler</string>
+    <string name="dynamic_colour_description">Android 12 ve sonrasında sistem paletini kullanır.</string>
+
+    <string name="label_theme">Tema</string>
+    <string name="label_language">Dil</string>
+    <string name="language_system">Sistem dili</string>
+    <string name="label_font">Yazı tipi</string>
+    <string name="font_system">Sistem yazı tipi</string>
+    <string name="section_editing">Düzenleme</string>
+    <string name="auto_save">Anında kaydet</string>
+    <string name="auto_save_description">Değişiklikleri sormadan hemen yazar.</string>
+    <string name="expert_mode">Uzman modu</string>
+    <string name="expert_mode_description">Kaynakları, depoları, gönderenleri ve ham GEDCOM etiketlerini gösterir.</string>
+    <string name="load_tree_at_startup">Son ağacı yeniden aç</string>
+    <string name="load_tree_at_startup_description">Kaldığın yerden başla.</string>
+
+    <string name="section_notifications">Hatırlatmalar</string>
+    <string name="birthday_reminders">Doğum günü hatırlatmaları</string>
+    <string name="birthday_reminders_description">Yaşayan akrabaların doğum günleri için günlük bir not.</string>
+    <string name="reminder_time">Günün saati</string>
+
+    <string name="premium">Premium</string>
+    <string name="premium_active">Premium etkin</string>
+    <string name="premium_description">Soyağacını kaydetmek ve saklamak ücretsizdir, hep öyle kalacak. Premium yalnızca iki ağacın otomatik birleştirilmesini açar — elle karşılaştırmada saatler kazandıran kısım.</string>
+    <string name="premium_buy">%s karşılığında aç</string>
+    <string name="premium_thanks">Teşekkürler. Otomatik birleştirme açıldı.</string>
+    <string name="premium_already_owned">Buna zaten sahipsin. Geri yüklendi.</string>
+    <string name="premium_cancelled">Satın alma iptal edildi.</string>
+    <string name="premium_unavailable">Bu cihazda mağaza kullanılamıyor.</string>
+    <string name="premium_failed">Satın alma tamamlanamadı.</string>
+    <string name="restore_purchases">Önceki satın almayı geri yükle</string>
+</resources>

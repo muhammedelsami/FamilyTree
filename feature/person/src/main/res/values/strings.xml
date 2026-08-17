@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="people_title">People</string>
+    <string name="search_people">Search people</string>
+    <string name="close_search">Close search</string>
+    <string name="sort_people">Sort</string>
+    <string name="add_person">Add person</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+
+    <string name="no_people_title">No people yet</string>
+    <string name="no_people_description">Add the first person and the tree grows from there.</string>
+    <string name="no_matches_title">Nothing matched</string>
+    <string name="no_matches_description">No one in this tree matches “%1$s”.</string>
+
+    <string name="sort_id">Identifier</string>
+    <string name="sort_surname">Surname</string>
+    <string name="sort_date">Date</string>
+    <string name="sort_age">Age</string>
+    <string name="sort_birthday">Next birthday</string>
+    <string name="sort_relatives">Number of relatives</string>
+    <string name="edit_person">Edit person</string>
+    <string name="save">Save</string>
+    <string name="given_name">Given name</string>
+    <string name="surname">Surname</string>
+    <string name="sex">Sex</string>
+    <string name="sex_male">Male</string>
+    <string name="sex_female">Female</string>
+    <string name="sex_unknown">Unknown</string>
+    <string name="birth">Birth</string>
+    <string name="date">Date</string>
+    <string name="place">Place</string>
+    <string name="deceased">Deceased</string>
+    <string name="add_parent">Add parent</string>
+    <string name="add_sibling">Add sibling</string>
+    <string name="add_partner">Add partner</string>
+    <string name="add_child">Add child</string>
+    <string name="tab_facts">Facts</string>
+    <string name="tab_relatives">Relatives</string>
+    <string name="tab_media">Media</string>
+    <string name="back">Back</string>
+    <string name="delete_person">Delete person</string>
+    <string name="delete_person_message">“%1$s” and everything recorded about them will be removed.</string>
+    <string name="person_unnamed_profile">Unnamed person</string>
+    <string name="person_gone">This person no longer exists</string>
+    <string name="add_relative">Add relative</string>
+    <string name="no_facts">Nothing recorded yet.</string>
+    <string name="no_relatives_title">No relatives yet</string>
+    <string name="no_relatives_description">Add a parent, a partner or a child to start connecting this person.</string>
+    <string name="media_later_phase">Media arrives in a later phase.</string>
+    <string name="section_names">Names</string>
+    <string name="section_events">Events</string>
+    <string name="section_notes">Notes</string>
+    <string name="group_parents">Parents</string>
+    <string name="group_siblings">Siblings</string>
+    <string name="group_partners">Partners</string>
+    <string name="group_children">Children</string>
+    <string name="relation_parent">Parent</string>
+    <string name="relation_sibling">Sibling</string>
+    <string name="relation_partner">Partner</string>
+    <string name="relation_child">Child</string>
+    <string name="delete">Delete</string>
+    <string name="choose_person">Choose a person</string>
+</resources>

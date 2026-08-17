@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="families_title">Aileler</string>
+    <string name="search_families">Ailelerde ara</string>
+    <string name="close_search">Aramayı kapat</string>
+    <string name="sort_families">Sırala</string>
+    <string name="add_family">Aile ekle</string>
+    <string name="no_families_title">Henüz aile yok</string>
+    <string name="no_families_description">Kişileri birbirine bağladıkça aileler burada belirir.</string>
+    <string name="no_matches_title">Eşleşme yok</string>
+    <string name="no_family_matches">Bu ağaçta “%1$s” ile eşleşen aile yok.</string>
+    <string name="family_without_partners">Eşsiz aile</string>
+    <string name="married_prefix">Evlilik %1$s</string>
+    <string name="children_count">%1$d çocuk</string>
+    <string name="family_sort_id">Kimlik</string>
+    <string name="family_sort_surname">Soyadı</string>
+    <string name="family_sort_members">Üye sayısı</string>
+    <string name="family_detail_title">Aile</string>
+    <string name="back">Geri</string>
+    <string name="add_event">Olay ekle</string>
+    <string name="delete_event">Olayı sil</string>
+    <string name="family_gone">Bu aile artık mevcut değil</string>
+    <string name="no_family_events">Bu aile için henüz olay kaydedilmemiş.</string>
+    <string name="group_partners">Eşler</string>
+    <string name="group_children">Çocuklar</string>
+    <string name="member_without_id">Üye</string>
+    <string name="open_person">Kişiyi aç</string>
+    <string name="remove_member">Aileden çıkar</string>
+</resources>

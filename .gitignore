@@ -1,0 +1,44 @@
+# Build output.
+#
+# `build/` with no leading slash, so it matches at every depth. The Android Studio
+# template ships `/build`, which anchors the rule to the repository root and covers
+# exactly one directory — fine for a single-module project, useless here: the 25 modules
+# under core/ and feature/ each have their own, and every one of them was being tracked.
+build/
+.gradle/
+.kotlin/
+/captures
+.cxx
+.externalNativeBuild
+
+# IDE. The project-level .idea files that describe the *project* stay tracked; these are
+# the ones that describe this machine.
+*.iml
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+# Which device the run button last deployed to. Changes on every switch between phone and
+# emulator, and records the device's serial — a phone paired over wireless adb puts its
+# local IP address in here.
+/.idea/deploymentTargetSelector.xml
+# Android Vitals / Crashlytics tab state, per developer and per Google account.
+/.idea/appInsightsSettings.xml
+
+# Local machine configuration — SDK paths, and whatever the developer has set.
+local.properties
+
+.DS_Store
+
+# Release signing. The upload key and its passwords are the one secret this repository
+# has, and losing control of them means someone else can publish an update as this app.
+# `app/build.gradle.kts` reads keystore.properties only if it exists; without it the
+# release build is simply unsigned, which is all a public checkout ever needs.
+keystore.properties
+*.jks
+*.keystore
+
+# Play Console service-account keys, if a release is ever automated from here.
+play-service-account.json

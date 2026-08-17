@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="backups">النسخ الاحتياطية</string>
+    <string name="back">رجوع</string>
+    <string name="cancel">إلغاء</string>
+    <string name="delete">حذف</string>
+    <string name="open">فتح</string>
+    <string name="restore">استعادة</string>
+
+    <string name="back_up_now">إنشاء نسخة</string>
+    <string name="save_elsewhere">حفظ نسخة</string>
+    <string name="restore_from_file">استعادة من ملف</string>
+    <string name="automatic_backup">النسخ التلقائي</string>
+    <plurals name="automatic_backup_description">
+        <item quantity="zero">لا يحتفظ بأي نسخة على هذا الجهاز.</item>
+        <item quantity="one">يحتفظ بأحدث نسخة على هذا الجهاز.</item>
+        <item quantity="two">يحتفظ بأحدث نسختين على هذا الجهاز.</item>
+        <item quantity="few">يحتفظ بأحدث %d نسخ على هذا الجهاز.</item>
+        <item quantity="many">يحتفظ بأحدث %d نسخة على هذا الجهاز.</item>
+        <item quantity="other">يحتفظ بأحدث %d نسخة على هذا الجهاز.</item>
+    </plurals>
+
+    <string name="no_backups">لا توجد نسخ احتياطية بعد</string>
+    <string name="no_backups_description">تحفظ النسخة الاحتياطية الشجرة كاملة وصورها في ملف واحد.</string>
+    <string name="backup_summary">%1$d شخصًا · %2$s</string>
+
+    <string name="restore_backup">هل تريد استعادة هذه النسخة؟</string>
+    <string name="restore_backup_explanation">تُستعاد النسخة كشجرة جديدة. لا يتغير ولا يُستبدل أي شيء لديك الآن.</string>
+    <string name="restored_as_new_tree">استُعيدت النسخة كشجرة جديدة إلى جانب شجرتك الحالية.</string>
+    <string name="restored_tree">شجرة مستعادة</string>
+
+    <string name="backup_saved">حُفظت النسخة الاحتياطية.</string>
+    <string name="backup_restored">استُعيدت النسخة الاحتياطية.</string>
+    <string name="backup_exported">حُفظت النسخة.</string>
+    <string name="backup_deleted">حُذفت النسخة الاحتياطية.</string>
+    <string name="backup_failed">لم ينجح ذلك.</string>
+</resources>

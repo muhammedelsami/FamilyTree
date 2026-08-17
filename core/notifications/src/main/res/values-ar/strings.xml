@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="birthday_channel">أعياد الميلاد</string>
+    <string name="birthday_channel_description">تذكير يومي بأعياد الميلاد في شجراتك.</string>
+    <string name="birthday_today_one">اليوم عيد ميلاد %s</string>
+    <plurals name="birthday_today_many">
+        <item quantity="zero">لا أعياد ميلاد اليوم</item>
+        <item quantity="one">عيد ميلاد واحد اليوم</item>
+        <item quantity="two">عيدا ميلاد اليوم</item>
+        <item quantity="few">%d أعياد ميلاد اليوم</item>
+        <item quantity="many">%d عيد ميلاد اليوم</item>
+        <item quantity="other">%d عيد ميلاد اليوم</item>
+    </plurals>
+    <string name="birthday_person_age">%1$s (%2$d)</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   Auto-backup contents for API 30 and below. The API 31+ equivalent is
+   data_extraction_rules.xml, and the two must agree.
+
+   Everything is included: the tree lives on this device and nowhere else, so Android's
+   own backup is the only thing standing between a lost phone and a lost family tree.
+-->
+<full-backup-content />

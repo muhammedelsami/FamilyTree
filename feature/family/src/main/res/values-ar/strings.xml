@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="families_title">العائلات</string>
+    <string name="search_families">البحث في العائلات</string>
+    <string name="close_search">إغلاق البحث</string>
+    <string name="sort_families">ترتيب</string>
+    <string name="add_family">إضافة عائلة</string>
+    <string name="no_families_title">لا توجد عائلات بعد</string>
+    <string name="no_families_description">تظهر العائلات كلما ربطت الأشخاص ببعضهم.</string>
+    <string name="no_matches_title">لا توجد نتائج</string>
+    <string name="no_family_matches">لا توجد عائلة في هذه الشجرة تطابق «%1$s».</string>
+    <string name="family_without_partners">عائلة بلا شركاء</string>
+    <string name="married_prefix">الزواج %1$s</string>
+    <string name="children_count">%1$d أطفال</string>
+    <string name="family_sort_id">المعرّف</string>
+    <string name="family_sort_surname">اسم العائلة</string>
+    <string name="family_sort_members">عدد الأعضاء</string>
+    <string name="family_detail_title">العائلة</string>
+    <string name="back">رجوع</string>
+    <string name="add_event">إضافة حدث</string>
+    <string name="delete_event">حذف الحدث</string>
+    <string name="family_gone">لم تعد هذه العائلة موجودة</string>
+    <string name="no_family_events">لم تُسجَّل أحداث لهذه العائلة بعد.</string>
+    <string name="group_partners">الشركاء</string>
+    <string name="group_children">الأطفال</string>
+    <string name="member_without_id">عضو</string>
+    <string name="open_person">فتح الشخص</string>
+    <string name="remove_member">إزالة من العائلة</string>
+</resources>

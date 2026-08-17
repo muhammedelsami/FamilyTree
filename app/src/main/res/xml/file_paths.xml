@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The camera app writes straight into the tree's own media folder. Only that folder is
+  shared, and only for the single file handed over — nothing else in app storage is
+  reachable through this provider.
+-->
+<paths>
+    <external-files-path name="tree_media" path="." />
+</paths>

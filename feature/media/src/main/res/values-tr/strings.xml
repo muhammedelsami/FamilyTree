@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gallery">Galeri</string>
+    <string name="media">Medya</string>
+    <string name="back">Geri</string>
+    <string name="more">Daha fazla</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="delete">Sil</string>
+    <string name="remove">Kaldır</string>
+    <string name="rename">Yeniden adlandır</string>
+    <string name="not_set">Belirtilmemiş</string>
+
+    <plurals name="media_count">
+        <item quantity="one">%d öğe</item>
+        <item quantity="other">%d öğe</item>
+    </plurals>
+
+    <string name="gallery_empty">Henüz medya yok</string>
+    <string name="gallery_empty_description">Kişilere eklenen fotoğraf ve belgeler burada görünür.</string>
+
+    <string name="shorten_links">Dosya bağlantılarını kısalt</string>
+    <string name="copy_files_in">Dosyaları uygulamaya kopyala</string>
+    <plurals name="links_shortened">
+        <item quantity="one">%d bağlantı kısaltıldı</item>
+        <item quantity="other">%d bağlantı kısaltıldı</item>
+    </plurals>
+    <plurals name="files_copied">
+        <item quantity="one">%d dosya kopyalandı</item>
+        <item quantity="other">%d dosya kopyalandı</item>
+    </plurals>
+    <string name="nothing_to_do">Değiştirilecek bir şey yoktu.</string>
+    <string name="maintenance_failed">Bir sorun oluştu.</string>
+
+    <string name="title">Başlık</string>
+    <string name="media_type">Tür</string>
+    <string name="media_type_hint">Örneğin fotoğraf, belge ya da mektup.</string>
+    <string name="crop">Kırp</string>
+    <string name="rename_file">Dosyayı yeniden adlandır</string>
+    <string name="file_name">Dosya adı</string>
+    <string name="remove_media">Ağaçtan kaldır</string>
+    <string name="delete_file">Dosyayı sil</string>
+    <string name="delete_file_warning">Dosya bu cihazdan silinecek. Bu işlem geri alınamaz.</string>
+    <string name="file_renamed">Dosya yeniden adlandırıldı.</string>
+    <string name="file_rename_failed">Dosya yeniden adlandırılamadı.</string>
+    <string name="file_deleted">Dosya silindi.</string>
+    <string name="file_delete_failed">Dosya silinemedi.</string>
+
+    <string name="file_link">Kayıtlı bağlantı</string>
+    <string name="location">Konum</string>
+    <string name="stored_in_app">Uygulamanın kendi deposunda</string>
+    <string name="stored_in_granted_folder">İzin verdiğiniz bir klasörde</string>
+    <string name="stored_online">İnternette</string>
+    <string name="file_not_found">Bu cihazda bulunamadı</string>
+    <plurals name="shared_by_records">
+        <item quantity="one">%d kayıt kullanıyor</item>
+        <item quantity="other">%d kayıt kullanıyor</item>
+    </plurals>
+
+    <string name="media_folders">Medya klasörleri</string>
+    <string name="add_folder">Klasör ekle</string>
+    <string name="no_media_folders">Medya klasörü yok</string>
+    <string name="no_media_folders_description">Fotoğraflarınızın durduğu klasörü ekleyin; bu ağacın işaret ettiği dosyalar orada aranır.</string>
+    <string name="media_folders_explanation">Bu ağacın işaret ettiği dosyalar bu klasörlerde aranır.</string>
+    <string name="folder_available">Erişilebilir</string>
+    <string name="folder_unavailable">Artık okunamıyor — izin geri alınmış olabilir.</string>
+    <string name="add_media">Fotoğraf veya belge ekle</string>
+    <string name="from_photos">Fotoğraflardan</string>
+    <string name="from_files">Dosyalardan</string>
+    <string name="take_photo">Fotoğraf çek</string>
+    <string name="file_exists_reuse">Bu ad ve boyutta bir dosya bu ağaçta zaten var. Onu mu kullanalım, yoksa ikinci bir kopya mı tutalım?</string>
+    <string name="use_existing">Mevcut olanı kullan</string>
+    <string name="make_copy">İkisini de tut</string>
+    <string name="rotate">Döndür</string>
+    <string name="done">Bitti</string>
+    <string name="no_media_here">Henüz fotoğraf veya belge yok</string>
+    <string name="no_media_here_description">Bir fotoğraf, belge ya da taranmış mektup ekleyin.</string>
+    <string name="use_as_portrait">Portre olarak kullan</string>
+</resources>

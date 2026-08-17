@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+   Auto-backup and device-transfer contents for API 31+. Keep in step with
+   backup_rules.xml, which covers API 30 and below.
+
+   Nothing is excluded. The app keeps no account and sends nothing to a server, so the
+   database and the media it points at are the whole of the user's data, and both belong
+   in a backup and in a transfer to a new device.
+-->
+<data-extraction-rules>
+    <cloud-backup />
+    <device-transfer />
+</data-extraction-rules>

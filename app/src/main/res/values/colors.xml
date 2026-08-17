@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      The colour the launch window is painted in — the frame between the splash going and
+      Compose drawing. It is the light scheme's `surface` (LightSurface in the design
+      system's Color.kt) to the digit, with a `values-night` twin; a value that is merely
+      close reads as a flash. Keep the two in step.
+    -->
+    <color name="launch_background">#FCFDFC</color>
+
+    <!--
+      The splash screen, and deliberately the one colour here with no night variant.
+
+      The splash window is drawn by the system before this process exists, so it is
+      resolved against the *system's* night mode — never against the theme the user chose
+      inside the app. Painting it in the app's surface colour therefore only looks
+      seamless while the two agree: pick Light on a phone set to dark and the splash comes
+      up black and hands over to a white app. A brand colour is right in every
+      combination, so the handover is a deliberate transition rather than a mismatch that
+      shows up on some phones and not others.
+
+      Pine30 from the palette: dark enough for the white mark to carry, and the middle of
+      the gradient the launcher icon's background is drawn in.
+    -->
+    <color name="splash_background">#1C4B37</color>
+</resources>

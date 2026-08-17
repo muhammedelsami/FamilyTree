@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="trees_title">Soyağaçları</string>
+    <string name="new_tree">Yeni ağaç</string>
+    <string name="default_tree_title">Soyağacım</string>
+    <string name="untitled_tree">Adsız ağaç</string>
+    <string name="no_trees_title">Henüz soyağacı yok</string>
+    <string name="no_trees_description">Sıfırdan yeni bir ağaç oluşturun ya da elinizdeki GEDCOM dosyasını içe aktarın.</string>
+    <string name="tree_summary">%1$d kişi · %2$d kuşak · %3$d medya</string>
+
+    <string name="tree_actions">Ağaç işlemleri</string>
+    <string name="rename_tree">Yeniden adlandır</string>
+    <string name="tree_title_label">Ağaç adı</string>
+    <string name="delete">Sil</string>
+    <string name="create">Oluştur</string>
+    <string name="delete_tree_title">Bu ağaç silinsin mi?</string>
+    <string name="delete_tree_message">“%1$s” ve içindeki her şey kaldırılacak. Bu işlem geri alınamaz.</string>
+    <string name="export_gedcom">GEDCOM olarak dışa aktar</string>
+    <string name="export_succeeded">“%1$s” dışa aktarıldı.</string>
+
+    <string name="importing">İçe aktarılıyor…</string>
+    <string name="option_empty_title">Boş ağaç</string>
+    <string name="option_empty_description">Sıfırdan başlayın, kişileri kendiniz ekleyin.</string>
+    <string name="option_import_title">GEDCOM dosyası içe aktar</string>
+    <string name="option_import_description">Başka bir soyağacı programından dışa aktarılmış ağacı getirin.</string>
+    <string name="option_restore_title">Yedekten geri yükle</string>
+    <string name="option_restore_description">Sonraki sürümde geliyor.</string>
+
+    <string name="tree_state_derived">Paylaşılan ağaçtan türetildi</string>
+    <string name="tree_state_exhausted">Tüm güncellemeler alındı · silinebilir</string>
+    <string name="check_tree">Sorunları denetle</string>
+    <string name="check_clean_title">Sorun bulunamadı</string>
+    <string name="check_clean_description">Bu ağacın yapısı sağlam.</string>
+    <string name="check_found_title">Sorunlar bulundu</string>
+    <string name="check_nothing_automatic">Bunların elle düzeltilmesi gerekiyor.</string>
+    <string name="repair">Onar</string>
+    <string name="repair_done">Onarımlar uygulandı</string>
+    <string name="issue_missing_root">Başlangıç kişisi eksik ya da mevcut değil (%1$d)</string>
+    <string name="issue_missing_ids">%1$d kaydın GEDCOM kimliği yok</string>
+    <string name="issue_underpopulated_families">%1$d ailede ikiden az üye var</string>
+    <string name="issue_media_without_file">%1$d medya kaydı hiçbir dosyayı göstermiyor</string>
+    <string name="issue_orphaned_links">%1$d not, medya ya da olay artık var olmayan kayıtlara bağlı</string>
+    <string name="issue_people_without_name">%1$d kişinin adı yok</string>
+    <string name="backups">Yedekler</string>
+    <string name="share_tree">Bu ağacı paylaş</string>
+    <string name="receive_share">Paylaşılan ağaç al</string>
+    <string name="settings">Ayarlar</string>
+
+</resources>

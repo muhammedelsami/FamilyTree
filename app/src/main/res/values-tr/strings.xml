@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FamilyTree</string>
+    <string name="section_diagram">Diyagram</string>
+    <string name="section_people">Kişiler</string>
+    <string name="section_families">Aileler</string>
+    <string name="section_media">Medya</string>
+</resources>

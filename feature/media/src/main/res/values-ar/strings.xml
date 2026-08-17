@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gallery">المعرض</string>
+    <string name="media">الوسائط</string>
+    <string name="back">رجوع</string>
+    <string name="more">المزيد</string>
+    <string name="cancel">إلغاء</string>
+    <string name="delete">حذف</string>
+    <string name="remove">إزالة</string>
+    <string name="rename">إعادة تسمية</string>
+    <string name="not_set">غير محدد</string>
+
+    <plurals name="media_count">
+        <item quantity="zero">لا عناصر</item>
+        <item quantity="one">عنصر واحد</item>
+        <item quantity="two">عنصران</item>
+        <item quantity="few">%d عناصر</item>
+        <item quantity="many">%d عنصرًا</item>
+        <item quantity="other">%d عنصر</item>
+    </plurals>
+
+    <string name="gallery_empty">لا توجد وسائط بعد</string>
+    <string name="gallery_empty_description">تظهر هنا الصور والمستندات المرفقة بالأشخاص.</string>
+
+    <string name="shorten_links">اختصار روابط الملفات</string>
+    <string name="copy_files_in">نسخ الملفات إلى التطبيق</string>
+    <plurals name="links_shortened">
+        <item quantity="zero">لم يُختصر أي رابط</item>
+        <item quantity="one">اختُصر رابط واحد</item>
+        <item quantity="two">اختُصر رابطان</item>
+        <item quantity="few">اختُصرت %d روابط</item>
+        <item quantity="many">اختُصر %d رابطًا</item>
+        <item quantity="other">اختُصر %d رابط</item>
+    </plurals>
+    <plurals name="files_copied">
+        <item quantity="zero">لم يُنسخ أي ملف</item>
+        <item quantity="one">نُسخ ملف واحد</item>
+        <item quantity="two">نُسخ ملفان</item>
+        <item quantity="few">نُسخت %d ملفات</item>
+        <item quantity="many">نُسخ %d ملفًا</item>
+        <item quantity="other">نُسخ %d ملف</item>
+    </plurals>
+    <string name="nothing_to_do">لا شيء يحتاج إلى تغيير.</string>
+    <string name="maintenance_failed">حدث خطأ ما.</string>
+
+    <string name="title">العنوان</string>
+    <string name="media_type">النوع</string>
+    <string name="media_type_hint">مثل صورة أو شهادة أو رسالة.</string>
+    <string name="crop">قص</string>
+    <string name="rename_file">إعادة تسمية الملف</string>
+    <string name="file_name">اسم الملف</string>
+    <string name="remove_media">إزالة من الشجرة</string>
+    <string name="delete_file">حذف الملف</string>
+    <string name="delete_file_warning">سيُحذف الملف من هذا الجهاز. لا يمكن التراجع عن ذلك.</string>
+    <string name="file_renamed">أُعيدت تسمية الملف.</string>
+    <string name="file_rename_failed">تعذّرت إعادة تسمية الملف.</string>
+    <string name="file_deleted">حُذف الملف.</string>
+    <string name="file_delete_failed">تعذّر حذف الملف.</string>
+
+    <string name="file_link">الرابط المسجّل</string>
+    <string name="location">الموقع</string>
+    <string name="stored_in_app">في مخزن التطبيق نفسه</string>
+    <string name="stored_in_granted_folder">في مجلد سمحت بالوصول إليه</string>
+    <string name="stored_online">على الإنترنت</string>
+    <string name="file_not_found">غير موجود على هذا الجهاز</string>
+    <plurals name="shared_by_records">
+        <item quantity="zero">لا يستخدمه أي سجل</item>
+        <item quantity="one">يستخدمه سجل واحد</item>
+        <item quantity="two">يستخدمه سجلان</item>
+        <item quantity="few">تستخدمه %d سجلات</item>
+        <item quantity="many">يستخدمه %d سجلًا</item>
+        <item quantity="other">يستخدمه %d سجل</item>
+    </plurals>
+
+    <string name="media_folders">مجلدات الوسائط</string>
+    <string name="add_folder">إضافة مجلد</string>
+    <string name="no_media_folders">لا توجد مجلدات وسائط</string>
+    <string name="no_media_folders_description">أضف المجلد الذي تحفظ فيه صورك، وستُبحث فيه الملفات التي تشير إليها هذه الشجرة.</string>
+    <string name="media_folders_explanation">يُبحث في هذه المجلدات عن الملفات التي تشير إليها هذه الشجرة.</string>
+    <string name="folder_available">متاح</string>
+    <string name="folder_unavailable">لم يعد قابلاً للقراءة — ربما سُحب الإذن.</string>
+    <string name="add_media">إضافة صورة أو مستند</string>
+    <string name="from_photos">من الصور</string>
+    <string name="from_files">من الملفات</string>
+    <string name="take_photo">التقاط صورة</string>
+    <string name="file_exists_reuse">يوجد بالفعل ملف بهذا الاسم والحجم في هذه الشجرة. أتريد استخدامه أم الاحتفاظ بنسخة ثانية؟</string>
+    <string name="use_existing">استخدام الموجود</string>
+    <string name="make_copy">الاحتفاظ بكليهما</string>
+    <string name="rotate">تدوير</string>
+    <string name="done">تم</string>
+    <string name="no_media_here">لا توجد صور أو مستندات بعد</string>
+    <string name="no_media_here_description">أضف صورة أو شهادة أو رسالة ممسوحة ضوئيًا.</string>
+    <string name="use_as_portrait">استخدامها كصورة شخصية</string>
+</resources>

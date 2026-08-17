@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="backups">Yedekler</string>
+    <string name="back">Geri</string>
+    <string name="cancel">Vazgeç</string>
+    <string name="delete">Sil</string>
+    <string name="open">Aç</string>
+    <string name="restore">Geri yükle</string>
+
+    <string name="back_up_now">Yedekle</string>
+    <string name="save_elsewhere">Kopya kaydet</string>
+    <string name="restore_from_file">Dosyadan geri yükle</string>
+    <string name="automatic_backup">Otomatik yedekle</string>
+    <plurals name="automatic_backup_description">
+        <item quantity="one">Bu cihazda en son yedeği tutar.</item>
+        <item quantity="other">Bu cihazda en son %d yedeği tutar.</item>
+    </plurals>
+
+    <string name="no_backups">Henüz yedek yok</string>
+    <string name="no_backups_description">Bir yedek, ağacın tamamını ve fotoğraflarını tek dosyada tutar.</string>
+    <string name="backup_summary">%1$d kişi · %2$s</string>
+
+    <string name="restore_backup">Bu yedek geri yüklensin mi?</string>
+    <string name="restore_backup_explanation">Yedek yeni bir ağaç olarak geri yüklenir. Şu anki hiçbir şey değişmez veya silinmez.</string>
+    <string name="restored_as_new_tree">Yedek, mevcut ağacının yanına yeni bir ağaç olarak geri yüklendi.</string>
+    <string name="restored_tree">Geri yüklenen ağaç</string>
+
+    <string name="backup_saved">Yedek kaydedildi.</string>
+    <string name="backup_restored">Yedek geri yüklendi.</string>
+    <string name="backup_exported">Kopya kaydedildi.</string>
+    <string name="backup_deleted">Yedek silindi.</string>
+    <string name="backup_failed">Bu işe yaramadı.</string>
+</resources>

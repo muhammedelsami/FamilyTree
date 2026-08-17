@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="backups">Backups</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="open">Open</string>
+    <string name="restore">Restore</string>
+
+    <string name="back_up_now">Back up</string>
+    <string name="save_elsewhere">Save a copy</string>
+    <string name="restore_from_file">Restore from a file</string>
+    <string name="automatic_backup">Back up automatically</string>
+    <plurals name="automatic_backup_description">
+        <item quantity="one">Keeps the most recent backup on this device.</item>
+        <item quantity="other">Keeps the %d most recent backups on this device.</item>
+    </plurals>
+
+    <string name="no_backups">No backups yet</string>
+    <string name="no_backups_description">A backup holds the whole tree and its photographs in one file.</string>
+    <string name="backup_summary">%1$d people · %2$s</string>
+
+    <string name="restore_backup">Restore this backup?</string>
+    <string name="restore_backup_explanation">The backup is restored as a new tree. Nothing you have now is changed or replaced.</string>
+    <string name="restored_as_new_tree">The backup was restored as a new tree, alongside the one you already had.</string>
+    <string name="restored_tree">Restored tree</string>
+
+    <string name="backup_saved">Backup saved.</string>
+    <string name="backup_restored">Backup restored.</string>
+    <string name="backup_exported">Copy saved.</string>
+    <string name="backup_deleted">Backup deleted.</string>
+    <string name="backup_failed">That did not work.</string>
+</resources>

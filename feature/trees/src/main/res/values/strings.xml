@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="trees_title">Family trees</string>
+    <string name="new_tree">New tree</string>
+    <string name="default_tree_title">My family tree</string>
+    <string name="untitled_tree">Untitled tree</string>
+    <string name="no_trees_title">No family trees yet</string>
+    <string name="no_trees_description">Start a new tree from scratch, or import a GEDCOM file you already have.</string>
+    <!-- %1$d people, %2$d generations, %3$d media files -->
+    <string name="tree_summary">%1$d people · %2$d generations · %3$d media</string>
+
+    <string name="tree_actions">Tree actions</string>
+    <string name="rename_tree">Rename</string>
+    <string name="tree_title_label">Tree name</string>
+    <string name="delete">Delete</string>
+    <string name="create">Create</string>
+    <string name="delete_tree_title">Delete this tree?</string>
+    <string name="delete_tree_message">“%1$s” and everything in it will be removed. This cannot be undone.</string>
+    <string name="export_gedcom">Export as GEDCOM</string>
+    <string name="export_succeeded">“%1$s” was exported.</string>
+
+    <string name="importing">Importing…</string>
+    <string name="option_empty_title">Empty tree</string>
+    <string name="option_empty_description">Start from scratch and add people yourself.</string>
+    <string name="option_import_title">Import a GEDCOM file</string>
+    <string name="option_import_description">Bring in a tree exported from another genealogy program.</string>
+    <string name="option_restore_title">Restore a backup</string>
+    <string name="option_restore_description">Coming in a later version.</string>
+
+    <string name="tree_state_derived">Derived from a shared tree</string>
+    <string name="tree_state_exhausted">All updates taken · safe to delete</string>
+    <string name="check_tree">Check for problems</string>
+    <string name="check_clean_title">No problems found</string>
+    <string name="check_clean_description">This tree is structurally sound.</string>
+    <string name="check_found_title">Problems found</string>
+    <string name="check_nothing_automatic">These need to be fixed by hand.</string>
+    <string name="repair">Repair</string>
+    <string name="repair_done">Repairs applied</string>
+    <string name="issue_missing_root">The starting person is missing or does not exist (%1$d)</string>
+    <string name="issue_missing_ids">%1$d records have no GEDCOM identifier</string>
+    <string name="issue_underpopulated_families">%1$d families have fewer than two members</string>
+    <string name="issue_media_without_file">%1$d media records point at no file</string>
+    <string name="issue_orphaned_links">%1$d notes, media or events are attached to records that no longer exist</string>
+    <string name="issue_people_without_name">%1$d people have no name</string>
+    <string name="backups">Backups</string>
+    <string name="share_tree">Share this tree</string>
+    <string name="receive_share">Receive a shared tree</string>
+    <string name="settings">Settings</string>
+
+</resources>

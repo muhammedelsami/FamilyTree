@@ -1,0 +1,33 @@
+0 HEAD
+1 GEDC
+2 VERS 5.5.1
+2 FORM LINEAGE-LINKED
+1 CHAR UTF-8
+0 @I1@ INDI
+1 NAME Person /With Some Media/
+1 SEX M
+1 OBJE
+2 TITL PDF in the external storage to be accessed with a direct path
+2 FILE È Carmelo.pdf
+1 OBJE
+2 TITL Text file to access with direct path
+2 FILE path.txt
+1 OBJE
+2 TITL Same file
+2 FILE path.txt
+2 NOTE Duplicate files must be avoided, especially because the ZIP becomes invalid.
+1 OBJE
+2 TITL First homonym
+2 FILE first/homonym.txt
+1 OBJE
+2 TITL Second homonym
+2 FILE second/homonym.txt
+2 NOTE Here too, duplicate names must be avoided.
+1 OBJE
+2 TITL Text file to access with URI
+2 FILE uri.txt
+1 OBJE
+2 TITL Image in SD card to access with URI
+2 FILE anna.webp
+2 NOTE Only some devices have an SD card.
+0 TRLR

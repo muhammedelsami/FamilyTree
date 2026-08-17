@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="trees_title">شجرات العائلة</string>
+    <string name="new_tree">شجرة جديدة</string>
+    <string name="default_tree_title">شجرة عائلتي</string>
+    <string name="untitled_tree">شجرة بلا عنوان</string>
+    <string name="no_trees_title">لا توجد شجرات عائلة بعد</string>
+    <string name="no_trees_description">ابدأ شجرة جديدة من الصفر، أو استورد ملف GEDCOM لديك.</string>
+    <string name="tree_summary">%1$d شخص · %2$d جيل · %3$d وسائط</string>
+
+    <string name="tree_actions">إجراءات الشجرة</string>
+    <string name="rename_tree">إعادة تسمية</string>
+    <string name="tree_title_label">اسم الشجرة</string>
+    <string name="delete">حذف</string>
+    <string name="create">إنشاء</string>
+    <string name="delete_tree_title">هل تريد حذف هذه الشجرة؟</string>
+    <string name="delete_tree_message">سيتم حذف «%1$s» وكل ما فيها. لا يمكن التراجع عن هذا.</string>
+    <string name="export_gedcom">تصدير بصيغة GEDCOM</string>
+    <string name="export_succeeded">تم تصدير «%1$s».</string>
+
+    <string name="importing">جارٍ الاستيراد…</string>
+    <string name="option_empty_title">شجرة فارغة</string>
+    <string name="option_empty_description">ابدأ من الصفر وأضف الأشخاص بنفسك.</string>
+    <string name="option_import_title">استيراد ملف GEDCOM</string>
+    <string name="option_import_description">أحضر شجرة مصدَّرة من برنامج أنساب آخر.</string>
+    <string name="option_restore_title">استعادة نسخة احتياطية</string>
+    <string name="option_restore_description">قادم في إصدار لاحق.</string>
+
+    <string name="tree_state_derived">مشتقة من شجرة مشتركة</string>
+    <string name="tree_state_exhausted">تم أخذ كل التحديثات · يمكن حذفها</string>
+    <string name="check_tree">فحص المشكلات</string>
+    <string name="check_clean_title">لم يتم العثور على مشكلات</string>
+    <string name="check_clean_description">بنية هذه الشجرة سليمة.</string>
+    <string name="check_found_title">تم العثور على مشكلات</string>
+    <string name="check_nothing_automatic">يجب إصلاح هذه يدويًا.</string>
+    <string name="repair">إصلاح</string>
+    <string name="repair_done">تم تطبيق الإصلاحات</string>
+    <string name="issue_missing_root">شخص البداية مفقود أو غير موجود (%1$d)</string>
+    <string name="issue_missing_ids">%1$d سجل بلا معرّف GEDCOM</string>
+    <string name="issue_underpopulated_families">%1$d عائلة بها أقل من عضوين</string>
+    <string name="issue_media_without_file">%1$d سجل وسائط لا يشير إلى أي ملف</string>
+    <string name="issue_orphaned_links">%1$d ملاحظة أو وسائط أو حدث مرتبط بسجلات لم تعد موجودة</string>
+    <string name="issue_people_without_name">%1$d شخص بلا اسم</string>
+    <string name="backups">النسخ الاحتياطية</string>
+    <string name="share_tree">مشاركة هذه الشجرة</string>
+    <string name="receive_share">استلام شجرة مشتركة</string>
+    <string name="settings">الإعدادات</string>
+
+</resources>

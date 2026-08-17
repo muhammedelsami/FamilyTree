@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="review_updates">مراجعة التحديثات</string>
+    <string name="from_tree">من «%s»</string>
+    <string name="back">رجوع</string>
+    <string name="done">تم</string>
+    <string name="select_all">تحديد الكل</string>
+    <string name="select_none">إلغاء التحديد</string>
+
+    <plurals name="apply_updates">
+        <item quantity="zero">لا تحديثات لتطبيقها</item>
+        <item quantity="one">تطبيق تحديث واحد</item>
+        <item quantity="two">تطبيق تحديثين</item>
+        <item quantity="few">تطبيق %d تحديثات</item>
+        <item quantity="many">تطبيق %d تحديثًا</item>
+        <item quantity="other">تطبيق %d تحديث</item>
+    </plurals>
+
+    <string name="no_updates">لا جديد هنا</string>
+    <string name="no_updates_description">لا تحتوي هذه النسخة على شيء ليس في شجرتك بالفعل. يمكنك حذفها.</string>
+
+    <string name="count_added">%d مضاف</string>
+    <string name="count_changed">%d متغيّر</string>
+    <string name="count_removed">%d محذوف</string>
+
+    <string name="updates_applied">طُبّقت التحديثات</string>
+    <string name="updates_applied_summary">أُضيف %1$d، وحُدّث %2$d، وحُذف %3$d.</string>
+
+    <string name="record_person">شخص</string>
+    <string name="record_family">عائلة</string>
+    <string name="record_note">ملاحظة</string>
+    <string name="record_source">مصدر</string>
+    <string name="record_media">وسائط</string>
+    <string name="record_repository">مستودع</string>
+    <string name="record_submitter">مُرسِل</string>
+
+    <string name="share_tree">مشاركة هذه الشجرة</string>
+    <string name="receive_share">استلام شجرة مشتركة</string>
+</resources>
