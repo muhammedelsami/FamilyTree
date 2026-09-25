@@ -43,6 +43,11 @@ keystore.properties
 # Play Console service-account keys, if a release is ever automated from here.
 play-service-account.json
 
+# Firebase client config. It carries the project's API key, and this repository is public,
+# so it stays out of history: CI writes it from the GOOGLE_SERVICES_JSON secret, and a
+# checkout without it still builds, just without Crashlytics and push (app/build.gradle.kts).
+google-services.json
+
 # Store listing material: the Play Console copy, graphics, screenshots and the demo trees
 # they were captured from. Deliberately untracked. It is marketing rather than source, it
 # carries a few megabytes of PNGs that would bloat the history of a repository people clone

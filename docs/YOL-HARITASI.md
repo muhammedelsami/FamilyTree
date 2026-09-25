@@ -32,6 +32,7 @@ breadcrumb yığını. Detay ekranları alan okuma/yazma için reflection kullan
 | **Diyagram** | `gedcomgraph-3.12.jar` korunur, render Compose Canvas'ta yeniden yazılır | Yerleşim algoritması kanıtlanmış; sıfırdan yazmak en riskli kalem |
 | **Room şeması** | Tam ilişkisel + `extensions` tablosu | Kayıpsız GEDCOM round-trip |
 | **Senkron** | **Yok.** Room tek ve tek kopya | Cihazlar arası taşıma: ZIP yedeği veya GEDCOM dışa aktarımı |
+| **Firebase** *(25 Eylül 2026)* | **Yalnızca Crashlytics ve Cloud Messaging** — proje `familytrees-ecf41` | Hesap, senkron ve analitik hâlâ yok; ağaç verisi cihazdan çıkmıyor. Crashlytics yalnızca release'te toplar. Push, sunucu olmadığı için herkesin katıldığı `all` konusuna konsoldan gönderilir; token hiçbir yere iletilmez. `google-services.json` API anahtarı taşıdığı için gitignored, CI `GOOGLE_SERVICES_JSON` secret'ından yazar; dosya yoksa build Firebase'siz geçer. `PRIVACY.md` buna göre güncellendi |
 | **Medya** | **Sadece cihazda** | Maliyet + gizlilik. Diğer her şey gibi, medya da cihazdan çıkmıyor |
 | **Diller** | İngilizce, Türkçe, Arapça | Arapça → RTL zorunlu |
 | **Teslimat** | Fazlı; her faz sonunda derlenip çalışan APK | — |

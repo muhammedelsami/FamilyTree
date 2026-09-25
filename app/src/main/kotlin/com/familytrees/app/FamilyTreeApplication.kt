@@ -3,6 +3,7 @@ package com.familytrees.app
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
+import com.familytree.core.notifications.PushNotifications
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
@@ -15,6 +16,14 @@ import javax.inject.Inject
 class FamilyTreeApplication : Application(), Configuration.Provider {
 
     @Inject lateinit var workerFactory: HiltWorkerFactory
+
+    @Inject lateinit var pushNotifications: PushNotifications
+
+    override fun onCreate() {
+        // Hilt injects the fields above inside super.onCreate().
+        super.onCreate()
+        pushNotifications.initialize()
+    }
 
     override val workManagerConfiguration: Configuration
         get() = Configuration.Builder().setWorkerFactory(workerFactory).build()

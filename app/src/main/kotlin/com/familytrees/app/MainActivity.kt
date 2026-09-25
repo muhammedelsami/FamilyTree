@@ -1,8 +1,12 @@
 package com.familytrees.app
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.os.SystemClock
 import androidx.activity.compose.setContent
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +17,7 @@ import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalView
+import androidx.core.content.ContextCompat
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -39,6 +44,11 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels()
 
+    // Nothing to do with the answer: a refusal only means no notifications are shown, and
+    // everything that posts one checks for itself.
+    private val notificationPermission =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) {}
+
     override fun onCreate(savedInstanceState: Bundle?) {
         // Swaps the launch theme for Theme.FamilyTree, so it has to run before AppCompat
         // reads the window in `super.onCreate`.
@@ -55,6 +65,10 @@ class MainActivity : AppCompatActivity() {
         splashScreen.setKeepOnScreenCondition {
             viewModel.settings.value == null && SystemClock.uptimeMillis() < giveUpAt
         }
+
+        // Only on a fresh start, not on every recreation — a language change recreates the
+        // activity, and the question should not come back with it.
+        if (savedInstanceState == null) askForNotifications()
 
         enableEdgeToEdge()
         setContent {
@@ -96,6 +110,20 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    /**
+     * From Android 13 a notification — a birthday reminder or a push — is shown only once the
+     * user has allowed it here. Declaring the permission in the manifest is not enough, and
+     * without this request it was never granted, so reminders silently never appeared.
+     * Asked at launch rather than from a settings switch because push has no switch of its
+     * own. Android stops showing the prompt by itself after the user declines it twice.
+     */
+    private fun askForNotifications() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+        val granted = ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
+            PackageManager.PERMISSION_GRANTED
+        if (!granted) notificationPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
     }
 
     private companion object {

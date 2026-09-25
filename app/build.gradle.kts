@@ -26,6 +26,24 @@ val keystoreProperties = providers
     .map { text -> Properties().apply { load(text.reader()) } }
     .orNull
 
+/**
+ * Firebase — Crashlytics and push — when this checkout has the project's config.
+ *
+ * `google-services.json` is gitignored because it carries the project's API key and this
+ * repository is public; CI writes it from a secret. Without it the Google Services plugin
+ * fails the build outright, so both Firebase plugins are applied only when it is there: a
+ * fresh clone still builds, and the app simply runs without crash reports or push. Read
+ * through `providers.fileContents` for the same configuration-cache reason as the keystore.
+ */
+val hasFirebaseConfig = providers
+    .fileContents(layout.projectDirectory.file("google-services.json"))
+    .asText
+    .isPresent
+if (hasFirebaseConfig) {
+    apply(plugin = libs.plugins.google.services.get().pluginId)
+    apply(plugin = libs.plugins.firebase.crashlytics.get().pluginId)
+}
+
 android {
     namespace = "com.familytrees.app"
 
@@ -56,8 +74,12 @@ android {
         debug {
             applicationIdSuffix = ".debug"
             isPseudoLocalesEnabled = true
+            // Crashes on a development build are the developer's to see in Logcat; sent to
+            // Crashlytics they would bury the ones real users hit.
+            manifestPlaceholders["crashlyticsCollectionEnabled"] = false
         }
         release {
+            manifestPlaceholders["crashlyticsCollectionEnabled"] = true
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(
@@ -105,6 +127,8 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.hilt.work)
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.crashlytics)
 
     androidTestImplementation(libs.androidx.espresso.core)
 }
