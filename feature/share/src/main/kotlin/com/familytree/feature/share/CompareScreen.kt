@@ -1,5 +1,8 @@
 package com.familytree.feature.share
 
+import android.content.Context
+import android.content.ContextWrapper
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -17,6 +20,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.outlined.CheckCircle
 import androidx.compose.material.icons.outlined.Difference
+import androidx.compose.material.icons.outlined.WorkspacePremium
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.AssistChip
 import androidx.compose.material3.Checkbox
@@ -27,17 +31,22 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedCard
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextDecoration
@@ -47,6 +56,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.familytree.core.designsystem.component.EmptyState
 import com.familytree.core.designsystem.component.FullScreenLoading
 import com.familytree.core.designsystem.theme.FtDimens
+import com.familytree.core.domain.repository.PurchaseOutcome
 import com.familytree.core.model.RecordType
 import com.familytree.core.model.TreeDifference
 
@@ -61,6 +71,7 @@ fun CompareRoute(
 ) {
     LaunchedEffect(localTreeId, incomingTreeId) { viewModel.load(localTreeId, incomingTreeId) }
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val context = LocalContext.current
 
     CompareScreen(
         uiState = uiState,
@@ -68,6 +79,8 @@ fun CompareRoute(
         onToggle = viewModel::toggle,
         onSetAll = viewModel::setAll,
         onApply = viewModel::apply,
+        onBuyPremium = { context.activity()?.let(viewModel::purchasePremium) },
+        onPurchaseMessageShown = viewModel::onPurchaseMessageShown,
         onDone = onDone,
         modifier = modifier,
     )
@@ -81,11 +94,33 @@ internal fun CompareScreen(
     onToggle: (TreeDifference) -> Unit,
     onSetAll: (Boolean) -> Unit,
     onApply: () -> Unit,
+    onBuyPremium: () -> Unit,
+    onPurchaseMessageShown: () -> Unit,
     onDone: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val snackbarHostState = remember { SnackbarHostState() }
+    val purchaseMessage = uiState.purchaseMessage?.let {
+        stringResource(
+            when (it) {
+                PurchaseOutcome.Purchased -> R.string.premium_thanks
+                PurchaseOutcome.AlreadyOwned -> R.string.premium_already_owned
+                PurchaseOutcome.Cancelled -> R.string.premium_cancelled
+                PurchaseOutcome.Unavailable -> R.string.premium_unavailable
+                is PurchaseOutcome.Failed -> R.string.premium_failed
+            },
+        )
+    }
+    LaunchedEffect(purchaseMessage) {
+        purchaseMessage?.let {
+            snackbarHostState.showSnackbar(it)
+            onPurchaseMessageShown()
+        }
+    }
+
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        snackbarHost = { SnackbarHost(snackbarHostState) },
         topBar = {
             TopAppBar(
                 title = {
@@ -122,7 +157,17 @@ internal fun CompareScreen(
             )
         },
         floatingActionButton = {
-            if (uiState.differences.isNotEmpty()) {
+            if (uiState.differences.isNotEmpty() && !uiState.premium) {
+                // Without a price there is nothing honest to put on the button, so there is
+                // no button: the note above the list already says what is missing.
+                uiState.offer?.let { offer ->
+                    ExtendedFloatingActionButton(
+                        onClick = { if (!uiState.purchasing) onBuyPremium() },
+                        icon = { Icon(Icons.Outlined.WorkspacePremium, contentDescription = null) },
+                        text = { Text(stringResource(R.string.merge_unlock, offer.formattedPrice)) },
+                    )
+                }
+            } else if (uiState.differences.isNotEmpty()) {
                 ExtendedFloatingActionButton(
                     onClick = onApply,
                     icon = { Icon(Icons.Outlined.CheckCircle, contentDescription = null) },
@@ -162,6 +207,7 @@ internal fun CompareScreen(
                     verticalArrangement = Arrangement.spacedBy(FtDimens.listItemSpacing),
                 ) {
                     item { Summary(uiState) }
+                    if (!uiState.premium) item { PremiumNote() }
                     items(uiState.differences, key = { it.id }) { difference ->
                         DifferenceRow(difference, onClick = { onToggle(difference) })
                         HorizontalDivider(color = MaterialTheme.colorScheme.outlineVariant)
@@ -216,6 +262,31 @@ private fun Summary(uiState: CompareUiState) {
                 onClick = {},
                 enabled = false,
                 label = { Text(stringResource(R.string.count_removed, comparison.removed)) },
+            )
+        }
+    }
+}
+
+/**
+ * Why the button asks for money. The comparison stays open to everyone — seeing what a copy
+ * would change is how someone decides whether merging is worth paying for.
+ */
+@Composable
+private fun PremiumNote() {
+    OutlinedCard(Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier.padding(FtDimens.cardPadding),
+            horizontalArrangement = Arrangement.spacedBy(FtDimens.listItemSpacing),
+        ) {
+            Icon(
+                Icons.Outlined.WorkspacePremium,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+            Text(
+                text = stringResource(R.string.merge_is_premium),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
     }
@@ -294,4 +365,10 @@ private fun RecordType.labelRes(): Int = when (this) {
     RecordType.MEDIA -> R.string.record_media
     RecordType.REPOSITORY -> R.string.record_repository
     RecordType.SUBMITTER -> R.string.record_submitter
+}
+
+private fun Context.activity(): ComponentActivity? = when (this) {
+    is ComponentActivity -> this
+    is ContextWrapper -> baseContext.activity()
+    else -> null
 }

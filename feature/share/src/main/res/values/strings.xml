@@ -32,4 +32,12 @@
 
     <string name="share_tree">Share this tree</string>
     <string name="receive_share">Receive a shared tree</string>
+
+    <string name="merge_is_premium">Applying these updates to your tree is part of Premium, a one-time purchase. The copy you received stays in your tree list either way.</string>
+    <string name="merge_unlock">Unlock for %s</string>
+    <string name="premium_thanks">Thank you. You can apply the updates now.</string>
+    <string name="premium_already_owned">You already own this. It has been restored.</string>
+    <string name="premium_cancelled">Purchase cancelled.</string>
+    <string name="premium_unavailable">The store is not available on this device.</string>
+    <string name="premium_failed">The purchase did not go through.</string>
 </resources>

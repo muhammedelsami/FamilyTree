@@ -32,4 +32,12 @@
 
     <string name="share_tree">Bu ağacı paylaş</string>
     <string name="receive_share">Paylaşılan ağaç al</string>
+
+    <string name="merge_is_premium">Bu güncellemeleri ağacına uygulamak Premium\'un parçası, tek seferlik bir satın alma. Aldığın kopya her durumda ağaç listende kalır.</string>
+    <string name="merge_unlock">%s karşılığında aç</string>
+    <string name="premium_thanks">Teşekkürler. Artık güncellemeleri uygulayabilirsin.</string>
+    <string name="premium_already_owned">Buna zaten sahipsin. Geri yüklendi.</string>
+    <string name="premium_cancelled">Satın alma iptal edildi.</string>
+    <string name="premium_unavailable">Bu cihazda mağaza kullanılamıyor.</string>
+    <string name="premium_failed">Satın alma tamamlanamadı.</string>
 </resources>

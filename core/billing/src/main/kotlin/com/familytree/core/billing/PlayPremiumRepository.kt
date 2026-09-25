@@ -2,6 +2,7 @@ package com.familytree.core.billing
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import com.android.billingclient.api.AcknowledgePurchaseParams
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingFlowParams
@@ -28,6 +29,8 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -54,18 +57,7 @@ class PlayPremiumRepository @Inject constructor(
     override val isPremium: Flow<Boolean> = settings.settings.map { it.premium }
 
     private val listener = PurchasesUpdatedListener { result, purchases ->
-        purchaseResults.value = when {
-            result.responseCode == BillingClient.BillingResponseCode.OK && purchases != null ->
-                if (purchases.any { it.isPremium() }) PurchaseOutcome.Purchased else PurchaseOutcome.Cancelled
-
-            result.responseCode == BillingClient.BillingResponseCode.USER_CANCELED ->
-                PurchaseOutcome.Cancelled
-
-            result.responseCode == BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED ->
-                PurchaseOutcome.AlreadyOwned
-
-            else -> PurchaseOutcome.Failed(result.debugMessage)
-        }
+        purchaseResults.value = result.toOutcome(purchases)
     }
 
     private val client: BillingClient by lazy {
@@ -75,9 +67,21 @@ class PlayPremiumRepository @Inject constructor(
             .build()
     }
 
-    /** Connects if needed. Returns false when the store simply is not there. */
+    private val connecting = Mutex()
+
+    /**
+     * Connects if needed. Returns false when the store simply is not there.
+     *
+     * One attempt at a time. The settings screen asks for the price and restores purchases
+     * in the same instant, and a second `startConnection` while the first is still in
+     * flight is answered at once with DEVELOPER_ERROR — so whichever call lost the race
+     * reported a store that was in fact there.
+     */
     private suspend fun connect(): Boolean = withContext(ioDispatcher) {
-        if (client.isReady) return@withContext true
+        connecting.withLock { client.isReady || startConnection() }
+    }
+
+    private suspend fun startConnection(): Boolean =
         suspendCancellableCoroutine { continuation ->
             client.startConnection(
                 object : com.android.billingclient.api.BillingClientStateListener {
@@ -93,7 +97,6 @@ class PlayPremiumRepository @Inject constructor(
                 },
             )
         }
-    }
 
     override suspend fun offer(): PremiumOffer? = withContext(ioDispatcher) {
         if (!connect()) return@withContext null
@@ -108,10 +111,15 @@ class PlayPremiumRepository @Inject constructor(
             )
             .build()
 
-        val details = runCatching { client.queryProductDetails(params) }.getOrNull()
-            ?.productDetailsList
-            ?.firstOrNull()
-            ?: return@withContext null
+        val result = runCatching { client.queryProductDetails(params) }.getOrNull()
+        val details = result?.productDetailsList?.firstOrNull()
+        if (details == null) {
+            // The card can only say "the store is not available", but a reachable store
+            // that does not know the product is a different fault with a different fix —
+            // one in the Play Console, not on the device. This line is how to tell them apart.
+            Log.w(TAG, "No details for $PRODUCT_ID: ${result?.billingResult?.responseCode} ${result?.billingResult?.debugMessage}")
+            return@withContext null
+        }
 
         PremiumOffer(
             productId = details.productId,
@@ -141,7 +149,7 @@ class PlayPremiumRepository @Inject constructor(
             ?: return PurchaseOutcome.Unavailable
 
         purchaseResults.value = null
-        client.launchBillingFlow(
+        val launched = client.launchBillingFlow(
             host,
             BillingFlowParams.newBuilder()
                 .setProductDetailsParamsList(
@@ -154,8 +162,14 @@ class PlayPremiumRepository @Inject constructor(
                 .build(),
         )
 
-        // The result arrives on the listener, not from the call above.
-        val outcome = purchaseResults.filterNotNull().first()
+        // A sheet that opened reports on the listener. One that never opened reports only
+        // here — the listener is not told — and waiting for it would leave the buy button
+        // disabled until the screen is left.
+        val outcome = if (launched.responseCode == BillingClient.BillingResponseCode.OK) {
+            purchaseResults.filterNotNull().first()
+        } else {
+            launched.toOutcome(purchases = null)
+        }
         if (outcome is PurchaseOutcome.Purchased || outcome is PurchaseOutcome.AlreadyOwned) {
             restorePurchases()
         }
@@ -188,10 +202,25 @@ class PlayPremiumRepository @Inject constructor(
         }
     }
 
+    private fun BillingResult.toOutcome(purchases: List<Purchase>?): PurchaseOutcome = when (responseCode) {
+        BillingClient.BillingResponseCode.OK ->
+            if (purchases.orEmpty().any { it.isPremium() }) PurchaseOutcome.Purchased else PurchaseOutcome.Cancelled
+
+        BillingClient.BillingResponseCode.USER_CANCELED -> PurchaseOutcome.Cancelled
+        BillingClient.BillingResponseCode.ITEM_ALREADY_OWNED -> PurchaseOutcome.AlreadyOwned
+        BillingClient.BillingResponseCode.BILLING_UNAVAILABLE,
+        BillingClient.BillingResponseCode.SERVICE_UNAVAILABLE,
+        BillingClient.BillingResponseCode.SERVICE_DISCONNECTED,
+        -> PurchaseOutcome.Unavailable
+
+        else -> PurchaseOutcome.Failed(debugMessage)
+    }
+
     private fun Purchase.isPremium(): Boolean =
         products.contains(PRODUCT_ID) && purchaseState == Purchase.PurchaseState.PURCHASED
 
     private companion object {
         const val PRODUCT_ID = "familytree_premium"
+        const val TAG = "PlayPremium"
     }
 }

@@ -36,4 +36,12 @@
 
     <string name="share_tree">مشاركة هذه الشجرة</string>
     <string name="receive_share">استلام شجرة مشتركة</string>
+
+    <string name="merge_is_premium">تطبيق هذه التحديثات على شجرتك جزء من النسخة المميزة، وهي عملية شراء لمرة واحدة. تبقى النسخة التي استلمتها في قائمة أشجارك في كل الأحوال.</string>
+    <string name="merge_unlock">الفتح مقابل %s</string>
+    <string name="premium_thanks">شكرًا لك. يمكنك الآن تطبيق التحديثات.</string>
+    <string name="premium_already_owned">تملك هذا بالفعل. تمت استعادته.</string>
+    <string name="premium_cancelled">أُلغيت عملية الشراء.</string>
+    <string name="premium_unavailable">المتجر غير متاح على هذا الجهاز.</string>
+    <string name="premium_failed">لم تكتمل عملية الشراء.</string>
 </resources>
