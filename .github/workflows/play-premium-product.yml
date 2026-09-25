@@ -1,0 +1,62 @@
+# Creates the `familytree_premium` one-time product in Google Play and activates it.
+#
+# Run by hand only (Actions → "Play: premium product" → Run workflow). Leave "dry run" on
+# the first time: it checks the credentials and prints the price Play would charge in each
+# region without creating anything.
+#
+# Needs one repository secret, PLAY_SERVICE_ACCOUNT_JSON: the JSON key of a Google Cloud
+# service account that has the Google Play Android Developer API enabled and has been
+# invited in Play Console → Users and permissions with access to this app.
+name: "Play: premium product"
+
+on:
+  workflow_dispatch:
+    inputs:
+      price:
+        description: "Base price, tax exclusive, e.g. 4.99 — converted by Play for every other region"
+        required: true
+      currency:
+        description: "Currency of the base price (ISO 4217)"
+        required: true
+        default: USD
+      dry_run:
+        description: "Dry run: check access and show regional prices, create nothing"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: play-premium-product
+  cancel-in-progress: false
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install --quiet google-auth==2.* requests==2.*
+
+      # Inputs travel through the environment, never spliced into the script: a workflow
+      # input interpolated into `run:` is shell injection waiting for a strange price.
+      - name: Create and activate the product
+        env:
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          PACKAGE_NAME: com.familytrees.app
+          PRODUCT_ID: familytree_premium
+          PRICE: ${{ inputs.price }}
+          CURRENCY: ${{ inputs.currency }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ -z "$PLAY_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::Repository secret PLAY_SERVICE_ACCOUNT_JSON is not set."
+            exit 1
+          fi
+          python .github/scripts/create_play_product.py
