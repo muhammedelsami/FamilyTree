@@ -31,8 +31,13 @@ android {
 
     defaultConfig {
         applicationId = "com.familytrees.app"
-        versionCode = 3
-        versionName = "1.0.0"
+        // CI passes -PversionCode: one above the highest build Play already has, so every
+        // push produces an upload Play accepts without anyone editing this file. The
+        // literal is what a local build gets.
+        versionCode = providers.gradleProperty("versionCode").map(String::toInt).getOrElse(3)
+        // Major and minor are chosen by hand; the patch is the build number, so each CI
+        // upload reads 1.0.4, 1.0.5, … in Play Console and on the device.
+        versionName = "1.0.$versionCode"
         resourceConfigurations += setOf("en", "tr", "ar")
     }
 

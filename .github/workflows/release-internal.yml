@@ -1,0 +1,139 @@
+# Every push to main is tested, built, signed and released to Play's internal testing track.
+#
+# The version code is one above the highest build Play already has (see
+# .github/scripts/play_publish.py), and the version name follows it as 1.0.<code>. Nothing is
+# committed back to the repository.
+#
+# Secrets — repository secrets only, never files in the repository:
+#   PLAY_SERVICE_ACCOUNT_JSON  service account key; needs "Release to testing tracks" on the app
+#   UPLOAD_KEYSTORE_BASE64     the upload keystore (.jks), base64-encoded
+#   UPLOAD_KEYSTORE_PASSWORD   its store password
+#   UPLOAD_KEY_ALIAS           the upload key's alias
+#   UPLOAD_KEY_PASSWORD        the upload key's password
+#
+# The keystore and keystore.properties exist only on the runner for the length of the job,
+# are written owner-readable only, and are deleted at the end whether the job passed or not.
+name: "Release: internal testing"
+
+on:
+  push:
+    branches: [main]
+    # Documentation and the one-off premium-product tooling do not change the app.
+    paths-ignore:
+      - "**.md"
+      - "docs/**"
+      - ".idea/**"
+      - ".github/workflows/play-premium-product.yml"
+      - ".github/scripts/create_play_product.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One release at a time, in order: two runs racing would both ask Play for the next version
+# code, get the same number, and the second upload would be rejected.
+concurrency:
+  group: release-internal
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PACKAGE_NAME: com.familytrees.app
+      TRACK: internal
+    steps:
+      - name: Check that the release secrets are set
+        env:
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+          UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
+          UPLOAD_KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
+          UPLOAD_KEY_PASSWORD: ${{ secrets.UPLOAD_KEY_PASSWORD }}
+        run: |
+          missing=""
+          for name in PLAY_SERVICE_ACCOUNT_JSON UPLOAD_KEYSTORE_BASE64 UPLOAD_KEYSTORE_PASSWORD UPLOAD_KEY_ALIAS UPLOAD_KEY_PASSWORD; do
+            [ -n "${!name}" ] || missing="$missing $name"
+          done
+          if [ -n "$missing" ]; then
+            echo "::error::Missing repository secrets:$missing"
+            exit 1
+          fi
+
+      # Actions are pinned to commit SHAs rather than tags: this job holds the signing key,
+      # and a tag can be moved to different code after the fact; a SHA cannot.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      # Also provisions the JDK 25 the Gradle daemon asks for (gradle-daemon-jvm.properties).
+      - uses: gradle/actions/setup-gradle@9c971963bec38e04b3d30dcc455b5382be2fdbfb # v6.3.0
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+
+      - run: pip install --quiet google-auth==2.* requests==2.*
+
+      - name: Pick the next version code
+        id: version
+        env:
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          code=$(python .github/scripts/play_publish.py next-version-code)
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          echo "Building version code $code (1.0.$code)"
+
+      # keystore.properties is gitignored and read by app/build.gradle.kts. Values are escaped
+      # for the .properties format, where a backslash would otherwise be swallowed.
+      - name: Put the upload key in place
+        env:
+          UPLOAD_KEYSTORE_BASE64: ${{ secrets.UPLOAD_KEYSTORE_BASE64 }}
+          UPLOAD_KEYSTORE_PASSWORD: ${{ secrets.UPLOAD_KEYSTORE_PASSWORD }}
+          UPLOAD_KEY_ALIAS: ${{ secrets.UPLOAD_KEY_ALIAS }}
+          UPLOAD_KEY_PASSWORD: ${{ secrets.UPLOAD_KEY_PASSWORD }}
+        run: |
+          umask 077
+          printf '%s' "$UPLOAD_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/upload.jks"
+          python - <<'EOF'
+          import os
+          def escape(value):
+              return value.replace("\\", "\\\\")
+          entries = {
+              "storeFile": os.path.join(os.environ["RUNNER_TEMP"], "upload.jks"),
+              "storePassword": os.environ["UPLOAD_KEYSTORE_PASSWORD"],
+              "keyAlias": os.environ["UPLOAD_KEY_ALIAS"],
+              "keyPassword": os.environ["UPLOAD_KEY_PASSWORD"],
+          }
+          with open("keystore.properties", "w") as f:
+              for key, value in entries.items():
+                  f.write(f"{key}={escape(value)}\n")
+          EOF
+
+      - name: Test and build the release bundle
+        run: ./gradlew test :app:bundleRelease -PversionCode=${{ steps.version.outputs.code }}
+
+      # Without a signing config the release build still succeeds, unsigned, and Play would
+      # only reject it after the upload. Fail here instead, with a clearer message.
+      - name: Check that the bundle is signed
+        run: |
+          if ! jarsigner -verify app/build/outputs/bundle/release/app-release.aab | grep -q "jar verified"; then
+            echo "::error::app-release.aab is not signed — check the UPLOAD_* secrets."
+            exit 1
+          fi
+
+      - name: Release to the internal testing track
+        env:
+          PLAY_SERVICE_ACCOUNT_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: >
+          python .github/scripts/play_publish.py upload
+          app/build/outputs/bundle/release/app-release.aab
+          app/build/outputs/mapping/release/mapping.txt
+
+      - name: Remove the upload key
+        if: always()
+        run: rm -f "$RUNNER_TEMP/upload.jks" keystore.properties

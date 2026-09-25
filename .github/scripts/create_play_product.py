@@ -24,11 +24,8 @@ import os
 import sys
 from decimal import Decimal, InvalidOperation
 
-import requests
-from google.oauth2 import service_account
-from google.auth.transport.requests import Request
+from play_api import Play
 
-API = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications"
 PURCHASE_OPTION_ID = "lifetime"
 
 # Titles are capped at 55 characters and descriptions at 200 by the API.
@@ -68,28 +65,6 @@ def money(amount: str, currency: str) -> dict:
 
 def show(value: dict) -> str:
     return f"{Decimal(value.get('units', '0')) + Decimal(value.get('nanos', 0)) / Decimal(1_000_000_000)} {value['currencyCode']}"
-
-
-class Play:
-    def __init__(self, key: str, package: str):
-        credentials = service_account.Credentials.from_service_account_info(
-            json.loads(key),
-            scopes=["https://www.googleapis.com/auth/androidpublisher"],
-        )
-        credentials.refresh(Request())
-        self.session = requests.Session()
-        self.session.headers["Authorization"] = f"Bearer {credentials.token}"
-        self.base = f"{API}/{package}"
-
-    def call(self, method: str, path: str, *, allow_404: bool = False, **kwargs):
-        response = self.session.request(method, f"{self.base}/{path}", timeout=60, **kwargs)
-        if allow_404 and response.status_code == 404:
-            return None
-        if not response.ok:
-            # The API's own message is the useful part: a missing permission, an unlinked
-            # payments profile or a malformed price all come back as a 4xx that says which.
-            sys.exit(f"{method} {path} failed with HTTP {response.status_code}:\n{response.text}")
-        return response.json() if response.content else {}
 
 
 def activate(play: Play, package: str, product_id: str, dry_run: bool) -> None:
